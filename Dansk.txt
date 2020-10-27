@@ -1,0 +1,4 @@
+vundetBesked
+Du har vundet!
+kastBesked
+Tryk OK for at kaste terningerne
