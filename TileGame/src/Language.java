@@ -7,7 +7,7 @@ import java.util.HashMap;
 public class Language {
 
     public static HashMap<String, String> languageInit() throws IOException {
-        Path path = Paths.get("Dansk.txt");
+        Path path = Paths.get("English.txt");
         BufferedReader reader = new BufferedReader(new FileReader(String.valueOf(path.toAbsolutePath())));
 
         HashMap<String, String> langList = new HashMap<>();

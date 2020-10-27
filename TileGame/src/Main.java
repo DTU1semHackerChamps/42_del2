@@ -7,8 +7,8 @@ public class Main {
 
         stringList = Language.languageInit();
 
-        System.out.println(stringList.get("vundetBesked"));
-        System.out.println(stringList.get("kastBesked"));
+        System.out.println(stringList.get("winMessasge"));
+        System.out.println(stringList.get("rollMessasge"));
 
     }
 }

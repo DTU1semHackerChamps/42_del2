@@ -1,4 +1,4 @@
-vundetBesked
+winMessasge
 Du har vundet!
-kastBesked
+rollMessasge
 Tryk OK for at kaste terningerne
