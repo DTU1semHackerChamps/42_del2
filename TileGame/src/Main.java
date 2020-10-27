@@ -9,6 +9,10 @@ public class Main {
 
         System.out.println(stringList.get("winMessasge"));
         System.out.println(stringList.get("rollMessasge"));
+        Dice a = new Dice(0);
+
+
+        System.out.println(a.rollDice());
 
     }
 }
