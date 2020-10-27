@@ -3,15 +3,14 @@ import java.util.HashMap;
 import gui_main.GUI;
 public class Main {
     public static void main(String[] args) throws IOException {
-        //GUI gui = new GUI();
 
-        //Displaymanager display = new Displaymanager();
+        Displaymanager display = new Displaymanager();
 
-        Displaymanager.initBoard();
+        display.initBoard();
+        display.startScreen();
 
 
         HashMap<String, String> stringList;
-
         stringList = Language.languageInit();
 
         System.out.println(stringList.get("winMessasge"));
