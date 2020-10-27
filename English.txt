@@ -1,0 +1,4 @@
+winMessasge
+You have won!
+rollMessasge
+Press OK to roll the dice
