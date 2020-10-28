@@ -19,6 +19,10 @@ public class Player {
         this.balance = balance;
     }
 
+    /**
+     * adds tile balance to player balance
+     * @return player balance
+     */
     public int getBalance() {
         return balance;
     }
@@ -36,6 +40,11 @@ public class Player {
         return position;
     }
 
+    /**
+     * add faceValue to the player's current position
+     * @param faceValue
+     * @return player position
+     */
     public int addPosition(int faceValue){
        position += faceValue;
 
@@ -48,10 +57,15 @@ public class Player {
     public void setPlayerTurn(boolean playerTurn) {
         this.playerTurn = playerTurn;
     }
+
     public boolean getPlayerTurn(){
         return playerTurn;
     }
 
+    /**
+     * Checks if winning requirement is reached
+     * @return returns if a player has won
+     */
     public boolean hasWon(){
         boolean winStatus = false;
         if(balance >= 3000){
@@ -60,6 +74,12 @@ public class Player {
         return winStatus;
     }
 
+    /**
+     * player switch methode
+     * @param player1
+     * @param player2
+     * @return returns who is the current player
+     */
     private Player shiftPlayer (Player player1, Player player2){
         Player currentPlayer;
         if (player1.getPlayerTurn()){
@@ -72,6 +92,11 @@ public class Player {
         return currentPlayer;
     }
 
+    /**
+     * extra turn methode
+     * @param player1
+     * @param tileExtraTurn
+     */
     private static void extraTurn (Player player1, boolean tileExtraTurn){
         if (tileExtraTurn) {
             if(player1.getPlayerTurn()){
