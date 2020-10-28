@@ -4,26 +4,24 @@ import gui_fields.GUI_Field;
 import java.io.IOException;
 import java.util.HashMap;
 public class Displaymanager {
-    GUI gui = new GUI();
+
     Dice a = new Dice(3);
 
 
-    public void startScreen(){
+    public static void startScreen(GUI gui){
         gui.showMessage("Press OK to roll the dice ");
 
     }
-    public void startButton(){
-        while (gui.getUserLeftButtonPressed(" ","Roll","Exit")){
-            gui.setDice(a.rollDice(),a.rollDice());
-        }
+    public static void startButton(GUI gui){
+        gui.getUserLeftButtonPressed(" ","Roll","Exit");
     }
 
-    public void displayDice(){
-        gui.setDice(1,2);
+    public static void displayDice(GUI gui,int dice1, int dice2){
+        gui.setDice(dice1,dice2);
 
     }
 
-    public void initBoard(){
+    public static void initBoard(){
         GUI_Field[] tiles = new GUI_Field[12];
         //tiles[0] = new GUI_Street();
         GUI_Street tileInfo= new GUI_Street();
