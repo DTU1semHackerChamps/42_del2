@@ -1,13 +1,24 @@
+import gui_main.GUI;
+import gui_fields.GUI_Street;
+import gui_fields.GUI_Field;
+
 import java.io.IOException;
 import java.util.HashMap;
-import gui_main.GUI;
+
 public class Main {
     public static void main(String[] args) throws IOException {
-
+        GUI gui1 = new GUI();
         Displaymanager display = new Displaymanager();
+        Dice a = new Dice(3);
 
-        display.initBoard();
+
+
         display.startScreen();
+        display.startButton();
+        display.displayDice();
+
+        //display.initBoard();
+
 
 
         HashMap<String, String> stringList;
@@ -15,8 +26,7 @@ public class Main {
 
         System.out.println(stringList.get("winMessasge"));
         System.out.println(stringList.get("rollMessasge"));
-        Dice a = new Dice(0);
-        System.out.println(a.rollDice());
+
 
     }
 }
