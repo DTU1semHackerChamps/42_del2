@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        GUI gui1 = new GUI();
+
         Displaymanager display = new Displaymanager();
         Dice a = new Dice(3);
 
