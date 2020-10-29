@@ -75,12 +75,6 @@ public class Main {
         }
 
 
-
-
-
-
-
-
         HashMap<String, String> stringList;
         stringList = Language.languageInit();
 
@@ -88,8 +82,8 @@ public class Main {
         System.out.println(stringList.get("rollMessasge"));
         Dice a = new Dice(0);
         System.out.println(a.rollDice());
-        Displaymanager.startScreen(gui);
+//        Displaymanager.startScreen(gui);
         Displaymanager.startButton(gui);
-        Displaymanager.displayDice(gui,a.getFaceValue(),a.getFavceValue());
+        Displaymanager.displayDice(gui,a.getFaceValue(),a.getFaceValue());
     }
 }
