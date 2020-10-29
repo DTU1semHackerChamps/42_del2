@@ -6,6 +6,7 @@ public class Displaymanager {
     GUI gui = new GUI();
 
     public void startScreen(){
+
         gui.showMessage("Press OK to roll the dice ");
     }
 
