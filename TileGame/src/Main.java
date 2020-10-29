@@ -11,15 +11,18 @@ public class Main {
     public static void main(String[] args) throws IOException {
         Dice dice = new Dice(0);
         Displaymanager displaymanager = new Displaymanager();
-        dice.rollDice();
+
 
         GUI gui = Displaymanager.initBoard();
         GUI_Player player1 = Displaymanager.displayAddPlayer(gui, "Brian", 1000, true);
         GUI_Player player2 = Displaymanager.displayAddPlayer(gui, "Niller", 1000, false);
+        int balance = 1200;
 
 
-
-        displaymanager.displayPosition(gui, dice.getFaceValue(), player1, player2);
+        while(balance>0) {
+            dice.rollDice();
+            displaymanager.displayPosition(gui, dice.getFaceValue(), player1, player2);
+        }
 
 
 

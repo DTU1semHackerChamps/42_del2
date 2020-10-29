@@ -5,8 +5,7 @@ import gui_fields.GUI_Street;
 import gui_fields.GUI_Field;
 
 import java.awt.*;
-import java.io.IOException;
-import java.util.HashMap;
+
 public class Displaymanager {
 
     private static GUI_Field[] fields = new GUI_Field[16];
@@ -18,7 +17,9 @@ public class Displaymanager {
 
     }
     public static void startButton(GUI gui){
+
         gui.getUserLeftButtonPressed(" ","Roll","Exit");
+
     }
 
     public static void displayDice(GUI gui,int dice1, int dice2){
@@ -78,20 +79,6 @@ public class Displaymanager {
     }
 
     public static void displayPosition(GUI gui, int diceRoll, GUI_Player gui_Player1, GUI_Player gui_Player2){
-        //********* Move player *******
-//        GUI_Car car1 = new GUI_Car();
-//        car1.setPrimaryColor(Color.blue);
-//        GUI_Player gui_Player1 = new GUI_Player("Brian",0, car1);
-//        gui.addPlayer(gui_Player1);
-//        gui_Player1.setBalance(1000);
-//
-//        GUI_Car car2 = new GUI_Car();
-//        car1.setPrimaryColor(Color.red);
-//        GUI_Player gui_Player2 = new GUI_Player("Niller",0, car2);
-//        gui.addPlayer(gui_Player2);
-//        gui_Player2.setBalance(1000);
-
-
 
         int facevalue = diceRoll;
         int tile = 1;
@@ -99,8 +86,6 @@ public class Displaymanager {
         fields[tile].setCar(gui_Player1, true);
         fields[tile].setCar(gui_Player2, true);
 
-
-        while (true){
 
             if(gui.getUserLeftButtonPressed("Press left or right","left", "right")){
                 fields[tile].removeAllCars();
@@ -115,11 +100,6 @@ public class Displaymanager {
 
                 fields[tile].setCar(gui_Player1, true);
             }
-
-            if(tile==12)
-                break;
-
-        }
 
     }
 
