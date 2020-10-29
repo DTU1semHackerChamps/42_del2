@@ -11,8 +11,8 @@ public class Displaymanager {
 
     private static GUI_Field[] fields = new GUI_Field[16];
 
-    static GUI gui = new GUI();
-    public void startScreen(){
+
+    public static void startScreen(GUI gui){
 
         gui.showMessage("Press OK to roll the dice ");
 
@@ -26,7 +26,8 @@ public class Displaymanager {
 
     }
 
-    public static void initBoard(){
+    public static GUI initBoard(){
+
         // *********Init board*********
 
         GUI.setNull_fields_allowed(true);
@@ -48,6 +49,24 @@ public class Displaymanager {
         }
         GUI gui = new GUI(fields);
 
+
+        return gui;
+
+    }
+
+    public static GUI_Player displayAddPlayer(GUI gui, String name, int balance, boolean color){
+        GUI_Car car1 = new GUI_Car();
+        if(color) {
+            car1.setPrimaryColor(Color.blue);
+        }
+        else{
+            car1.setPrimaryColor(Color.red);
+        }
+        GUI_Player gui_Player = new GUI_Player(name,balance, car1);
+        gui.addPlayer(gui_Player);
+
+        return gui_Player;
+
     }
 
     public void winScreen(){
@@ -58,7 +77,7 @@ public class Displaymanager {
 
     }
 
-    public void displayPosition(int diceRoll, GUI_Player gui_Player1, GUI_Player gui_Player2){
+    public static void displayPosition(GUI gui, int diceRoll, GUI_Player gui_Player1, GUI_Player gui_Player2){
         //********* Move player *******
 //        GUI_Car car1 = new GUI_Car();
 //        car1.setPrimaryColor(Color.blue);
@@ -87,7 +106,7 @@ public class Displaymanager {
                 fields[tile].removeAllCars();
                 tile += facevalue;
 
-                if(tile == 16)
+                if(tile >= 16)
                     tile = 1;
 
                 if((tile==0)||(tile==4)||(tile==8)||(tile==12))
@@ -97,20 +116,6 @@ public class Displaymanager {
                 fields[tile].setCar(gui_Player1, true);
             }
 
-            else{
-                fields[tile].removeAllCars();
-                tile -= facevalue;
-
-                if(tile == 0)
-                    tile = 15;
-
-                if((tile==0)||(tile==4)||(tile==8)||(tile==12))
-                    tile--;
-
-
-                fields[tile].setCar(gui_Player1, true);
-
-            }
             if(tile==12)
                 break;
 

@@ -13,22 +13,13 @@ public class Main {
         Displaymanager displaymanager = new Displaymanager();
         dice.rollDice();
 
-        Displaymanager.initBoard();
-
-        GUI_Car car1 = new GUI_Car();
-        car1.setPrimaryColor(Color.blue);
-        GUI_Player gui_Player1 = new GUI_Player("Brian",0, car1);
-        Displaymanager.gui.addPlayer(gui_Player1);
-        gui_Player1.setBalance(1000);
-
-        GUI_Car car2 = new GUI_Car();
-        car2.setPrimaryColor(Color.red);
-        GUI_Player gui_Player2 = new GUI_Player("Niller",0, car2);
-        Displaymanager.gui.addPlayer(gui_Player2);
-        gui_Player2.setBalance(1000);
+        GUI gui = Displaymanager.initBoard();
+        GUI_Player player1 = Displaymanager.displayAddPlayer(gui, "Brian", 1000, true);
+        GUI_Player player2 = Displaymanager.displayAddPlayer(gui, "Niller", 1000, false);
 
 
-        displaymanager.displayPosition(dice.getFaceValue(), gui_Player1, gui_Player2);
+
+        displaymanager.displayPosition(gui, dice.getFaceValue(), player1, player2);
 
 
 
