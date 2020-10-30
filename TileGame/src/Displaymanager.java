@@ -78,6 +78,19 @@ public class Displaymanager {
 
     }
 
+    public void winScreen(GUI gui, int playerPosition){
+       if (playerPosition >= 3000) {
+           gui.getUserLeftButtonPressed("You have won the game! Press 'Restart' or 'Exit' ","Exit","Restart");
+           System.exit(0);
+       }
+
+    }
+
+
+    public void displayBalance(){
+
+    }
+
     public static void displayPosition(GUI_Field[] fields, int positionPlayer1, int positionPlayer2, GUI_Player gui_Player1, GUI_Player gui_Player2){
 
 
@@ -116,8 +129,5 @@ public class Displaymanager {
 
     }
 
-    public void winScreen(){
-
-    }
 
 }
