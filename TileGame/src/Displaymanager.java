@@ -29,28 +29,24 @@ public class Displaymanager {
 
     public static GUI initBoard(){
 
-        // *********Init board*********
-
         GUI.setNull_fields_allowed(true);
         Tile[] tiles = Tile.tileListInit();
-        String tileBalance ="";
-
-
+        String tileBalance, tileName;
+        String[] tileColor;
 
         //Der tilføjes et par værdier.
         for (int i = 0; i < 16; i++) {
 
+            if ((i == 0) || (i == 4) || (i == 8) || (i == 12)) {
 
-                if ((i == 0) || (i == 4) || (i == 8) || (i == 12)) {
-
-                } else {
-
-                    tileBalance = Integer.toString(tiles[i].getBalanceChange());
-
-                GUI_Street street = new GUI_Street();
-                street.setTitle("Tower");
-                street.setSubText(tileBalance);
-                fields[i] = street;
+            } else {
+            tileBalance = Integer.toString(tiles[i].getBalanceChange());
+            tileName = tiles[i].getTileName();
+            GUI_Street street = new GUI_Street();
+            street.setTitle(tileName);
+            street.setSubText(tileBalance);
+            fields[i] = street;
+            fields[i].setBackGroundColor(Color.magenta);
 
             }
         }
