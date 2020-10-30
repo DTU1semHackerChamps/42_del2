@@ -9,33 +9,51 @@ import gui_fields.GUI_Street;
 import gui_main.GUI;
 public class Main {
     public static void main(String[] args) throws IOException {
-        Dice dice = new Dice(0);
-        Displaymanager displaymanager = new Displaymanager();
+        Tile[] tileList = Tile.tileListInit();
+        HashMap<String,String> stringList = Language.languageInit("english");
 
 
-        GUI gui = Displaymanager.initBoard();
-        GUI_Player player1 = Displaymanager.displayAddPlayer(gui, "Brian", 1000, true);
-        GUI_Player player2 = Displaymanager.displayAddPlayer(gui, "Niller", 1000, false);
-        int balance = 1200;
+        String[] tileTexts = Language.tileTexts(stringList);
 
+        Dice dice1 = new Dice(0);
+        Dice dice2 = new Dice(0);
+        int sumOfDice;
 
-        while(balance>0) {
-            dice.rollDice();
-            displaymanager.displayPosition(gui, dice.getFaceValue(), player1, player2);
+        GUI_Field[] fields = new GUI_Field[16];
+        GUI gui = Displaymanager.initBoard(fields);
+        Player player1 = new Player(1000, 1, true, gui.getUserString("Indtast et navn for spiller 1"));
+        Player player2 = new Player(1000, 1, false, gui.getUserString("Indtast et navn for spiller 2"));
+        Player currentPlayer = new Player(0,0,false,"");
+        GUI_Player gui_Player1 = Displaymanager.displayAddPlayer(gui, fields, player1.getPlayerName(), player1.getBalance(), true);
+        GUI_Player gui_Player2 = Displaymanager.displayAddPlayer(gui, fields, player2.getPlayerName(), player2.getBalance(), false);
+
+        while(true) {
+            player1.setPosition(1);
+            player2.setPosition(1);
+            player1.setBalance(1000);
+            player2.setBalance(1000);
+            player1.setPlayerTurn(true);
+            player2.setPlayerTurn(false);
+            while(Displaymanager.rollScreen(gui, Displaymanager.displayPlayerTurn(player1.getPlayerTurn(),stringList,player1.getPlayerName(),player2.getPlayerName()), stringList.get("rollButton"))){
+                currentPlayer = Player.shiftPlayer(player1, player2);
+                sumOfDice = dice1.rollDice() + dice2.rollDice();
+                currentPlayer.addPosition(sumOfDice);
+                currentPlayer.addBalance(tileList[currentPlayer.getPosition()].getBalanceChange());
+                Player.extraTurn(player1, tileList[currentPlayer.getPosition()].isExtraTurn());
+
+                player1.setPosition(player1.getPosition());
+                player2.setPosition(player2.getPosition());
+                gui_Player1.setBalance(player1.getBalance());
+                gui_Player2.setBalance(player2.getBalance());
+
+                Displaymanager.displayPosition(fields, player1.getPosition(), player2.getPosition(), gui_Player1, gui_Player2);
+                Displaymanager.displayDice(gui, dice1.getFaceValue(), dice2.getFaceValue());
+                Displaymanager.displayTileText(tileTexts,currentPlayer.getPosition(), gui);
+            }
+
         }
 
 
-
-
-        HashMap<String, String> stringList;
-        stringList = Language.languageInit("english");
-
-        System.out.println(stringList.get("winMessasge"));
-        System.out.println(stringList.get("rollMessasge"));
-        Dice a = new Dice(0);
-        System.out.println(a.rollDice());
-//        Displaymanager.startScreen(gui);
-//        Displaymanager.startButton(gui);
-//        Displaymanager.displayDice(gui,a.getFaceValue(),a.getFaceValue());
+       // while (!(Displaymanager.winScreen(gui, currentPlayer.hasWon())));*/
     }
 }

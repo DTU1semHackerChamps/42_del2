@@ -1,4 +1,44 @@
-winMessasge
+winMessage
 You have won!
-rollMessasge
-Press OK to roll the dice
+rollScreenMessage
+Press ROLL to roll the dice
+rollButton
+ROLL
+startButtonMessage
+Press PLAY to play or EXIT to exit
+startTrueButton
+PLAY
+startFalseButton
+EXIT
+winScreenMessage
+You have won the game! Press 'RESTART' or 'EXIT'
+winTrueButton
+EXIT
+winFalseButton
+RESTART
+tileText1
+0
+tileText2
+1
+tileText3
+2
+tileText4
+3
+tileText5
+4
+tileText6
+5
+tileText7
+6
+tileText8
+7
+tileText9
+8
+tileText10
+9
+tileText11
+10
+tileText12
+11
+playerTurn
+Halloejsa
