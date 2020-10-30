@@ -1,14 +1,17 @@
+import java.util.HashMap;
+
 public class Tile {
     /**
      * constructor
      */
     private int balanceChange;
     private boolean extraTurn;
-
-    public Tile(int a, boolean b)
+    private String tileName;
+    public Tile(int a, boolean b,String name)
     {
         balanceChange = a;
         extraTurn = b;
+        tileName = name;
 
     }
 
@@ -34,33 +37,33 @@ public class Tile {
      * @return returns array of the specified initiated tiles
      */
     public static Tile [] tileListInit(){
-        Tile [] Tiles = new Tile[12];
-        Tile Start = new Tile (0,false);
-        Tile Tower = new Tile (250,false);
-        Tile Crater = new Tile (-100,false);
-        Tile PalaceGates = new Tile (100,false);
-        Tile ColdDesert = new Tile (-20,false);
-        Tile WalledCity = new Tile (180,false);
-        Tile Monastery = new Tile (0,false);
-        Tile BlackCave = new Tile (-70,false);
-        Tile HutsInTheMountain = new Tile (60,false);
-        Tile TheWerewall = new Tile (-80,true);
-        Tile ThePit = new Tile (-50,false);
-        Tile Goldmine = new Tile (650,false);
+        Tile [] tiles = new Tile[16];
+        Tile start = new Tile (0,false,"Start");
+        Tile tower = new Tile (250,false, "Tower");
+        Tile crater = new Tile (-100,false, "Crater");
+        Tile palaceGates = new Tile (100,false, "Palace gates");
+        Tile coldDesert = new Tile (-20,false, "Cold Desert");
+        Tile walledCity = new Tile (180,false, "Walled city");
+        Tile monastery = new Tile (0,false, "Monastery");
+        Tile blackCave = new Tile (-70,false, "Black cave");
+        Tile hutsInTheMountain = new Tile (60,false, "Huts in the woods");
+        Tile theWerewall = new Tile (-80,true, "The Werewall");
+        Tile thePit = new Tile (-50,false, "The pit");
+        Tile goldmine = new Tile (650,false,"Goldmine");
 
-        Tiles[0] = Start;
-        Tiles[1] = Tower;
-        Tiles[2] = Crater;
-        Tiles[3] = PalaceGates;
-        Tiles[4] = ColdDesert;
-        Tiles[5] = WalledCity;
-        Tiles[6] = Monastery;
-        Tiles[7] = BlackCave;
-        Tiles[8] = HutsInTheMountain;
-        Tiles[9] = TheWerewall;
-        Tiles[10] = ThePit;
-        Tiles[11] = Goldmine;
+        tiles[1] = start;
+        tiles[2] = tower;
+        tiles[3] = crater;
+        tiles[5] = palaceGates;
+        tiles[6] = coldDesert;
+        tiles[7] = walledCity;
+        tiles[9] = monastery;
+        tiles[10] = blackCave;
+        tiles[11] = hutsInTheMountain;
+        tiles[13] = theWerewall;
+        tiles[14] = thePit;
+        tiles[15] = goldmine;
 
-        return Tiles;
+        return tiles;
     }
 }
