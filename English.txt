@@ -1,5 +1,3 @@
-winMessage
-You have won!
 rollScreenMessage
 Press ROLL to roll the dice
 rollButton
@@ -41,7 +39,7 @@ tileText11
 tileText12
 11
 playerTurn
-Halloejsa
+it is your turn. Press ROLL to roll.
 playerWin
 has won!
 typeName1
