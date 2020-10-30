@@ -27,30 +27,36 @@ public class Displaymanager {
 
     }
 
+    /**
+     *
+     * @return Returns gui with Tile names, Tile balance and random colors
+     * for the tiles and the
+     * background
+     */
     public static GUI initBoard(){
 
         GUI.setNull_fields_allowed(true);
         Tile[] tiles = Tile.tileListInit();
         String tileBalance, tileName;
-        String[] tileColor;
+        int j = 0;
 
-        //Der tilføjes et par værdier.
         for (int i = 0; i < 16; i++) {
 
+            j++;
             if ((i == 0) || (i == 4) || (i == 8) || (i == 12)) {
-
-            } else {
-            tileBalance = Integer.toString(tiles[i].getBalanceChange());
-            tileName = tiles[i].getTileName();
-            GUI_Street street = new GUI_Street();
-            street.setTitle(tileName);
-            street.setSubText(tileBalance);
-            fields[i] = street;
-            fields[i].setBackGroundColor(Color.magenta);
-
+             j--;
+            }
+            else {
+                tileBalance = Integer.toString(tiles[j].getBalanceChange());
+                tileName = tiles[j].getTileName();
+                GUI_Street street = new GUI_Street();
+                street.setTitle(tileName);
+                street.setSubText(tileBalance);
+                fields[i] = street;
+                fields[i].setBackGroundColor(Color.getHSBColor((float)Math.random(),(float)0.50,(float)0.85));
             }
         }
-        GUI gui = new GUI(fields);
+        GUI gui = new GUI(fields,Color.getHSBColor((float)Math.random(),(float)0.60,(float)0.75));
 
 
         return gui;
