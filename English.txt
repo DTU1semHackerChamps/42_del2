@@ -44,3 +44,7 @@ playerTurn
 Halloejsa
 playerWin
 has won!
+typeName1
+Please type your name player 1.
+typeName2
+Please type your name player 2.
