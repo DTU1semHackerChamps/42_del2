@@ -12,30 +12,23 @@ public class Main {
         Dice dice = new Dice(0);
         Displaymanager displaymanager = new Displaymanager();
 
-
-        GUI gui = Displaymanager.initBoard();
-        GUI_Player player1 = Displaymanager.displayAddPlayer(gui, "Brian", 1000, true);
-        GUI_Player player2 = Displaymanager.displayAddPlayer(gui, "Niller", 1000, false);
-        int balance = 1200;
-
-
-        while(balance>0) {
-            dice.rollDice();
-            displaymanager.displayPosition(gui, dice.getFaceValue(), player1, player2);
-        }
+        GUI_Field[] fields = new GUI_Field[16];
+        GUI gui = Displaymanager.initBoard(fields);
+        Displaymanager.startScreen(gui);
+        Player player1 = new Player(1000, 1, true, gui.getUserString("Indtast et navn for spiller 1"));
+        Player player2 = new Player(1000, 1, true, gui.getUserString("Indtast et navn for spiller 2"));
+        GUI_Player gui_Player1 = Displaymanager.displayAddPlayer(gui, fields, player1.getPlayerName(), player1.getBalance(), true);
+        GUI_Player gui_Player2 = Displaymanager.displayAddPlayer(gui, fields, player2.getPlayerName(), player2.getBalance(), false);
 
 
 
 
-        HashMap<String, String> stringList;
-        stringList = Language.languageInit("english");
 
-        System.out.println(stringList.get("winMessasge"));
-        System.out.println(stringList.get("rollMessasge"));
-        Dice a = new Dice(0);
-        System.out.println(a.rollDice());
-//        Displaymanager.startScreen(gui);
-//        Displaymanager.startButton(gui);
-//        Displaymanager.displayDice(gui,a.getFaceValue(),a.getFaceValue());
+      //  displaymanager.displayPosition(fields, player1.getPosition(), player2.getPosition(), gui_Player1, gui_Player2);
+
+
+
+
+
     }
 }

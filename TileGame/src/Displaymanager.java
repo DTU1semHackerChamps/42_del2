@@ -8,7 +8,6 @@ import java.awt.*;
 
 public class Displaymanager {
 
-    private static GUI_Field[] fields = new GUI_Field[16];
 
 
     public static void startScreen(GUI gui){
@@ -33,7 +32,7 @@ public class Displaymanager {
      * for the tiles and the
      * background
      */
-    public static GUI initBoard(){
+    public static GUI initBoard(GUI_Field[] fields){
 
         GUI.setNull_fields_allowed(true);
         Tile[] tiles = Tile.tileListInit();
@@ -63,7 +62,7 @@ public class Displaymanager {
 
     }
 
-    public static GUI_Player displayAddPlayer(GUI gui, String name, int balance, boolean color){
+    public static GUI_Player displayAddPlayer(GUI gui, GUI_Field[] fields, String name, int balance, boolean color){
         GUI_Car car1 = new GUI_Car();
         if(color) {
             car1.setPrimaryColor(Color.blue);
@@ -73,6 +72,7 @@ public class Displaymanager {
         }
         GUI_Player gui_Player = new GUI_Player(name,balance, car1);
         gui.addPlayer(gui_Player);
+        fields[1].setCar(gui_Player, true);
 
         return gui_Player;
 
@@ -86,28 +86,28 @@ public class Displaymanager {
 
     }
 
-    public static void displayPosition(GUI gui, int diceRoll, GUI_Player gui_Player1, GUI_Player gui_Player2){
-
-        int facevalue = diceRoll;
-        int tile = 1;
-
-        fields[tile].setCar(gui_Player1, true);
-        fields[tile].setCar(gui_Player2, true);
+    public static void displayPosition(GUI_Field[] fields, int positionPlayer1, int positionPlayer2, GUI_Player gui_Player1, GUI_Player gui_Player2){
 
 
-            if(gui.getUserLeftButtonPressed("Press left or right","left", "right")){
-                fields[tile].removeAllCars();
-                tile += facevalue;
-
-                if(tile >= 16)
-                    tile = 1;
-
-                if((tile==0)||(tile==4)||(tile==8)||(tile==12))
-                    tile++;
 
 
-                fields[tile].setCar(gui_Player1, true);
-            }
+        fields[positionPlayer1].removeAllCars();
+        switch (positionPlayer1) {
+            case 4,5,6: positionPlayer1 += 1;
+            case 7,8,9: positionPlayer1 += 2;
+            case 10,11,12: positionPlayer1 += 3;
+
+        }
+
+        switch (positionPlayer2) {
+            case 4,5,6: positionPlayer2 += 1;
+            case 7,8,9: positionPlayer2 += 2;
+            case 10,11,12: positionPlayer2 += 3;
+
+        }
+
+        fields[positionPlayer1].setCar(gui_Player1, true);
+        fields[positionPlayer2].setCar(gui_Player2, true);
 
     }
 
