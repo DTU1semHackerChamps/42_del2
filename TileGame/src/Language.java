@@ -6,8 +6,17 @@ import java.util.HashMap;
 
 public class Language {
 
-    public static HashMap<String, String> languageInit() throws IOException {
-        Path path = Paths.get("English.txt");
+    public static HashMap<String, String> languageInit(String language) throws IOException {
+        Path path;
+        switch (language.toLowerCase()) {
+            case "english":
+                path = Paths.get("English.txt");
+            break;
+            case "danish":
+                path = Paths.get("Danish.txt");
+            break;
+            default: path = Paths.get("English.txt");
+        }
         BufferedReader reader = new BufferedReader(new FileReader(String.valueOf(path.toAbsolutePath())));
 
         HashMap<String, String> langList = new HashMap<>();

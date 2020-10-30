@@ -28,7 +28,7 @@ public class Main {
 
 
         HashMap<String, String> stringList;
-        stringList = Language.languageInit();
+        stringList = Language.languageInit("english");
 
         System.out.println(stringList.get("winMessasge"));
         System.out.println(stringList.get("rollMessasge"));
