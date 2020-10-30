@@ -5,6 +5,7 @@ import gui_fields.GUI_Street;
 import gui_fields.GUI_Field;
 
 import java.awt.*;
+import java.util.HashMap;
 
 public class Displaymanager {
 
@@ -133,9 +134,18 @@ public class Displaymanager {
 
     }
 
-    public void displayTileText(){
+    public static String displayPlayerTurn(Boolean playerturn, HashMap<String,String> playerText, String player1name, String player2name){
+        String thisText;
+        if(playerturn){
+            thisText = player1name + " " + playerText.get("playerTurn");
+        } else {
+            thisText = player2name + " " + playerText.get("playerTurn");
+        }
+        return thisText;
+    }
 
-
+    public static void displayTileText(String[] tileTexts, int position, GUI gui){
+        gui.showMessage(tileTexts[position]);
     }
 
 

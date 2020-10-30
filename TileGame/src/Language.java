@@ -7,6 +7,7 @@ import java.util.HashMap;
 public class Language {
 
     public static HashMap<String, String> languageInit(String language) throws IOException {
+
         Path path;
         switch (language.toLowerCase()) {
             case "danish":
@@ -18,19 +19,19 @@ public class Language {
 
         HashMap<String, String> langList = new HashMap<>();
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 22; i++) {
             langList.put(reader.readLine(), reader.readLine()); // langList.put(keyWord, Data)
 
         }
         return langList;
     }
 
-    public static String[] tileDescriptions(HashMap<String, String> stringList){
-        String[] descriptions = new String[13];
+    public static String[] tileTexts(HashMap<String, String> stringList){
+        String[] tileText = new String[13];
         for (int i = 1 ; i < 13; i++) {
-            descriptions[i] = stringList.get("description"+i);
+            tileText[i] = stringList.get("tileText"+i);
         }
-        return descriptions;
+        return tileText;
     }
 
 }

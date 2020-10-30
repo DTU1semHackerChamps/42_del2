@@ -11,7 +11,9 @@ public class Main {
     public static void main(String[] args) throws IOException {
         Tile[] tileList = Tile.tileListInit();
         HashMap<String,String> stringList = Language.languageInit("english");
-        String[] tileDescriptions = Language.tileDescriptions(stringList);
+
+
+        String[] tileTexts = Language.tileTexts(stringList);
 
         Dice dice1 = new Dice(0);
         Dice dice2 = new Dice(0);
@@ -24,9 +26,7 @@ public class Main {
         Player currentPlayer = new Player(0,0,false,"");
         GUI_Player gui_Player1 = Displaymanager.displayAddPlayer(gui, fields, player1.getPlayerName(), player1.getBalance(), true);
         GUI_Player gui_Player2 = Displaymanager.displayAddPlayer(gui, fields, player2.getPlayerName(), player2.getBalance(), false);
-        for (int i = 1; i < 13; i++) {
-            System.out.println(stringList.get("winScreenMessage"));
-        }
+
         while(true) {
             player1.setPosition(1);
             player2.setPosition(1);
@@ -34,7 +34,7 @@ public class Main {
             player2.setBalance(1000);
             player1.setPlayerTurn(true);
             player2.setPlayerTurn(false);
-            while(Displaymanager.rollScreen(gui, stringList.get("rollScreenMessage"), stringList.get("rollButton"))){
+            while(Displaymanager.rollScreen(gui, Displaymanager.displayPlayerTurn(player1.getPlayerTurn(),stringList,player1.getPlayerName(),player2.getPlayerName()), stringList.get("rollButton"))){
                 currentPlayer = Player.shiftPlayer(player1, player2);
                 sumOfDice = dice1.rollDice() + dice2.rollDice();
                 currentPlayer.addPosition(sumOfDice);
@@ -48,11 +48,12 @@ public class Main {
 
                 Displaymanager.displayPosition(fields, player1.getPosition(), player2.getPosition(), gui_Player1, gui_Player2);
                 Displaymanager.displayDice(gui, dice1.getFaceValue(), dice2.getFaceValue());
+                Displaymanager.displayTileText(tileTexts,currentPlayer.getPosition(), gui);
             }
 
         }
 
 
-       // while (!(Displaymanager.winScreen(gui, currentPlayer.hasWon())));
+       // while (!(Displaymanager.winScreen(gui, currentPlayer.hasWon())));*/
     }
 }
