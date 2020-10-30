@@ -80,7 +80,7 @@ public class Player {
      * @param player2
      * @return returns who is the current player
      */
-    private Player shiftPlayer (Player player1, Player player2){
+    public static Player shiftPlayer (Player player1, Player player2){
         Player currentPlayer;
         if (player1.getPlayerTurn()){
             player1.setPlayerTurn(false);
@@ -97,7 +97,7 @@ public class Player {
      * @param player1
      * @param tileExtraTurn
      */
-    private static void extraTurn (Player player1, boolean tileExtraTurn){
+    public static void extraTurn (Player player1, boolean tileExtraTurn){
         if (tileExtraTurn) {
             if(player1.getPlayerTurn()){
                 player1.setPlayerTurn(false);

@@ -10,14 +10,14 @@ public class Displaymanager {
 
 
 
-    public static void startScreen(GUI gui){
-
-        gui.showMessage("Press OK to roll the dice ");
-
+    public static boolean rollScreen(GUI gui, String rollScreenMessage, String rollButton){
+        boolean buttonPress;
+        buttonPress = gui.getUserButtonPressed( rollScreenMessage, rollButton).equals(rollButton);
+        return buttonPress;
     }
-    public static void startButton(GUI gui){
+    public static void startButton(GUI gui, String startButtonMessage, String startTrueButton, String startFalseButton){
 
-        gui.getUserLeftButtonPressed(" ","Roll","Exit");
+        gui.getUserLeftButtonPressed(startButtonMessage, startTrueButton, startFalseButton);
 
     }
 
@@ -48,9 +48,12 @@ public class Displaymanager {
             else {
                 tileBalance = Integer.toString(tiles[j].getBalanceChange());
                 tileName = tiles[j].getTileName();
+
+
                 GUI_Street street = new GUI_Street();
                 street.setTitle(tileName);
                 street.setSubText(tileBalance);
+
                 fields[i] = street;
                 fields[i].setBackGroundColor(Color.getHSBColor((float)Math.random(),(float)0.50,(float)0.85));
             }
@@ -78,11 +81,16 @@ public class Displaymanager {
 
     }
 
-    public void winScreen(GUI gui, int playerPosition){
-       if (playerPosition >= 3000) {
-           gui.getUserLeftButtonPressed("You have won the game! Press 'Restart' or 'Exit' ","Exit","Restart");
-           System.exit(0);
+    public static boolean winScreen(GUI gui, boolean hasWon, String winScreenMessage, String winTrueButton, String winFalseButton){
+        boolean buttonPress = false;
+        if (hasWon) {
+           buttonPress = gui.getUserLeftButtonPressed(winScreenMessage, winTrueButton, winFalseButton);
+           if(buttonPress){
+               System.exit(0);
+           }
        }
+
+        return buttonPress;
 
     }
 
@@ -126,6 +134,7 @@ public class Displaymanager {
     }
 
     public void displayTileText(){
+
 
     }
 

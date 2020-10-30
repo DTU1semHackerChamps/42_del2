@@ -9,9 +9,6 @@ public class Language {
     public static HashMap<String, String> languageInit(String language) throws IOException {
         Path path;
         switch (language.toLowerCase()) {
-            case "english":
-                path = Paths.get("English.txt");
-            break;
             case "danish":
                 path = Paths.get("Danish.txt");
             break;
@@ -26,6 +23,14 @@ public class Language {
 
         }
         return langList;
+    }
+
+    public static String[] tileDescriptions(HashMap<String, String> stringList){
+        String[] descriptions = new String[13];
+        for (int i = 1 ; i < 13; i++) {
+            descriptions[i] = stringList.get("description"+i);
+        }
+        return descriptions;
     }
 
 }
