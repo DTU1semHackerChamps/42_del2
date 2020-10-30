@@ -96,12 +96,12 @@ public class Displaymanager {
     }
 
     /**
-     * The pop up when a player w
-     * @param gui
-     * @param winScreenMessage
-     * @param winTrueButton
-     * @param winFalseButton
-     * @return
+     * The pop up when a player wins.
+     * @param gui Current GUI
+     * @param winScreenMessage The message displayed in the top left
+     * @param winTrueButton True button text
+     * @param winFalseButton false button text in this case it closes the program.
+     * @return Returns a boolean true or false. In the case used to continue the do while loop
      */
 
     public static boolean winScreen(GUI gui, String winScreenMessage, String winTrueButton, String winFalseButton){
@@ -112,10 +112,17 @@ public class Displaymanager {
            System.exit(0);
        }
 
-
         return buttonPress;
     }
 
+    /**
+     * Displays both players current position on the board.
+     * @param fields The fields [] array for the fields on the board
+     * @param positionPlayer1 Position of player 1
+     * @param positionPlayer2 Position of player 2
+     * @param gui_Player1 The GUI_Player one used to change the car position
+     * @param gui_Player2 The GUI_Player two used to change the car position
+     */
     public static void displayPosition(GUI_Field[] fields, int positionPlayer1, int positionPlayer2, GUI_Player gui_Player1, GUI_Player gui_Player2){
 
 
@@ -150,6 +157,15 @@ public class Displaymanager {
 
     }
 
+    /**
+     * Returns a string with the name of the player who's turn it is
+     * @param playerturn Checks who's turn it is if, true player 1 if false player 2.
+     * @param playerText The text displayed after the players name.
+     * @param player1name Name of player 1.
+     * @param player2name Name of Player 2.
+     * @return turn String including the name of the player
+     */
+
     public static String displayPlayerTurn(Boolean playerturn, HashMap<String,String> playerText, String player1name, String player2name){
         String thisText;
         if(playerturn){
@@ -160,6 +176,14 @@ public class Displaymanager {
         return thisText;
     }
 
+    /**
+     * Returns a string with the name of the player who has won it is.
+     * @param playerturn Checks who's turn it is, if true player 1 if false player 2.
+     * @param playerText The text displayed after the players name.
+     * @param player1name Name of player 1.
+     * @param player2name Name of player 2.
+     * @return win String including the name of the player.
+     */
     public static String displayPlayerWin(Boolean playerturn, HashMap<String,String> playerText, String player1name, String player2name){
         String thisText;
         if(playerturn){
@@ -169,6 +193,13 @@ public class Displaymanager {
         }
         return thisText;
     }
+
+    /**
+     * Used to display the tile text of the current position after a roll.
+     * @param tileTexts String[] with the texts of the tiles
+     * @param position The current position of the player
+     * @param gui the gui currently used
+     */
 
     public static void displayTileText(String[] tileTexts, int position, GUI gui){
         gui.showMessage(tileTexts[position]);
