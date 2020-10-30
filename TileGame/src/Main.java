@@ -54,8 +54,7 @@ public class Main {
                 }
             }
 
-        }while (Displaymanager.winScreen(gui,stringList.get("winScreenMessage"),stringList.get("winTrueButton"), stringList.get("winFalseButton")));
-        System.out.println("man");
+        }while (Displaymanager.winScreen(gui,Displaymanager.displayPlayerWin(player1.getPlayerTurn(),stringList,player1.getPlayerName(), player2.getPlayerName()),stringList.get("winTrueButton"), stringList.get("winFalseButton")));
 
        // while (!(Displaymanager.winScreen(gui, currentPlayer.hasWon())));*/
     }
