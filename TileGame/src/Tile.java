@@ -31,13 +31,16 @@ public class Tile {
         return extraTurn;
     }
 
+    public String getTileName() {
+        return tileName;
+    }
 
     /**
      * array of tile list
      * @return returns array of the specified initiated tiles
      */
     public static Tile [] tileListInit(){
-        Tile [] tiles = new Tile[16];
+        Tile [] tiles = new Tile[13];
         Tile start = new Tile (0,false,"Start");
         Tile tower = new Tile (250,false, "Tower");
         Tile crater = new Tile (-100,false, "Crater");
@@ -54,15 +57,15 @@ public class Tile {
         tiles[1] = start;
         tiles[2] = tower;
         tiles[3] = crater;
-        tiles[5] = palaceGates;
-        tiles[6] = coldDesert;
-        tiles[7] = walledCity;
-        tiles[9] = monastery;
-        tiles[10] = blackCave;
-        tiles[11] = hutsInTheMountain;
-        tiles[13] = theWerewall;
-        tiles[14] = thePit;
-        tiles[15] = goldmine;
+        tiles[4] = palaceGates;
+        tiles[5] = coldDesert;
+        tiles[6] = walledCity;
+        tiles[7] = monastery;
+        tiles[8] = blackCave;
+        tiles[9] = hutsInTheMountain;
+        tiles[10] = theWerewall;
+        tiles[11] = thePit;
+        tiles[12] = goldmine;
 
         return tiles;
     }
