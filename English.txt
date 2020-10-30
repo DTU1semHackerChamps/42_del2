@@ -38,6 +38,10 @@ The sun rises after the darkest!
 tileText12
 You have won black diamond in the jungle, sale it for 650, make you self reach.
 playerTurn
-Halloejsa
+it is your turn. Press ROLL to roll.
 playerWin
 has won!
+typeName1
+Please type your name player 1.
+typeName2
+Please type your name player 2.

@@ -16,11 +16,13 @@ public class Displaymanager {
         buttonPress = gui.getUserButtonPressed( rollScreenMessage, rollButton).equals(rollButton);
         return buttonPress;
     }
-    public static void startButton(GUI gui, String startButtonMessage, String startTrueButton, String startFalseButton){
 
-        gui.getUserLeftButtonPressed(startButtonMessage, startTrueButton, startFalseButton);
-
-    }
+    /**
+     * Displays the current dice values in GUI
+     * @param gui the current GUI
+     * @param dice1 face value of dice 1
+     * @param dice2 face value of dice 2
+     */
 
     public static void displayDice(GUI gui,int dice1, int dice2){
         gui.setDice(dice1,dice2);
@@ -28,7 +30,10 @@ public class Displaymanager {
     }
 
     /**
-     *
+     * This method initializes and has a randomized color setting for the tiles and and bg.
+     * It also uses an if statement to translate the index of one array of 12 to an array of 16 with
+     * spaces at index 0 4 8 12
+     * @param fields is the current GUI_Field []
      * @return Returns gui with Tile names, Tile balance and random colors
      * for the tiles and the
      * background
@@ -66,6 +71,15 @@ public class Displaymanager {
 
     }
 
+    /**
+     * This method is used to add a GUI_Player to the GUI and it also initializes and returns that GUI_Player
+     * @param gui The current GUI
+     * @param fields The current GUI_Field[]
+     * @param name The name displayed in the GUI by the score
+     * @param balance The score number displayed
+     * @param color True for blue player and false for red
+     * @return
+     */
     public static GUI_Player displayAddPlayer(GUI gui, GUI_Field[] fields, String name, int balance, boolean color){
         GUI_Car car1 = new GUI_Car();
         if(color) {
@@ -79,8 +93,16 @@ public class Displaymanager {
         fields[1].setCar(gui_Player, true);
 
         return gui_Player;
-
     }
+
+    /**
+     * The pop up when a player w
+     * @param gui
+     * @param winScreenMessage
+     * @param winTrueButton
+     * @param winFalseButton
+     * @return
+     */
 
     public static boolean winScreen(GUI gui, String winScreenMessage, String winTrueButton, String winFalseButton){
         boolean buttonPress = false;

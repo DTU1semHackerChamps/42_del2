@@ -1,12 +1,9 @@
-import java.awt.*;
 import java.io.IOException;
 import java.util.HashMap;
-
-import gui_fields.GUI_Car;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Player;
-import gui_fields.GUI_Street;
 import gui_main.GUI;
+
 public class Main {
     public static void main(String[] args) throws IOException {
         Tile[] tileList = Tile.tileListInit();
@@ -21,8 +18,8 @@ public class Main {
 
         GUI_Field[] fields = new GUI_Field[16];
         GUI gui = Displaymanager.initBoard(fields);
-        Player player1 = new Player(1000, 1, true, gui.getUserString("Indtast et navn for spiller 1"));
-        Player player2 = new Player(1000, 1, false, gui.getUserString("Indtast et navn for spiller 2"));
+        Player player1 = new Player(1000, 1, true, gui.getUserString(stringList.get("typeName1")));
+        Player player2 = new Player(1000, 1, false, gui.getUserString(stringList.get("typeName2")));
         Player currentPlayer = new Player(0,0,false,"");
         GUI_Player gui_Player1 = Displaymanager.displayAddPlayer(gui, fields, player1.getPlayerName(), player1.getBalance(), true);
         GUI_Player gui_Player2 = Displaymanager.displayAddPlayer(gui, fields, player2.getPlayerName(), player2.getBalance(), false);
@@ -57,8 +54,7 @@ public class Main {
                 }
             }
 
-        }while (Displaymanager.winScreen(gui,stringList.get("winScreenMessage"),stringList.get("winTrueButton"), stringList.get("winFalseButton")));
-        System.out.println("man");
+        }while (Displaymanager.winScreen(gui,Displaymanager.displayPlayerWin(player1.getPlayerTurn(),stringList,player1.getPlayerName(), player2.getPlayerName()),stringList.get("winTrueButton"), stringList.get("winFalseButton")));
 
        // while (!(Displaymanager.winScreen(gui, currentPlayer.hasWon())));*/
     }
