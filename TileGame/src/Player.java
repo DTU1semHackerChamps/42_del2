@@ -29,7 +29,6 @@ public class Player {
 
     public int addBalance(int tileBalanceChange){
         balance += tileBalanceChange;
-
         if (balance < 0){
             balance = 0;
         }
