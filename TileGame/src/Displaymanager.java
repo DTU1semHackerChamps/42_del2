@@ -1,3 +1,4 @@
+import gui_codebehind.Observable;
 import gui_fields.GUI_Car;
 import gui_fields.GUI_Player;
 import gui_main.GUI;
@@ -7,6 +8,9 @@ import gui_fields.GUI_Field;
 import java.awt.*;
 
 public class Displaymanager {
+    GUI a = new GUI();
+
+
 
 
 
@@ -78,9 +82,14 @@ public class Displaymanager {
 
     }
 
-    public void winScreen(){
+    public void winScreen(GUI gui, int playerPosition){
+       if (playerPosition >= 3000) {
+           gui.getUserLeftButtonPressed("You have won the game! Press 'Restart' or 'Exit' ","Exit","Restart");
+           System.exit(0);
+       }
 
     }
+
 
     public void displayBalance(){
 
