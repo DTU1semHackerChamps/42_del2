@@ -11,20 +11,31 @@ public class Displaymanager {
     GUI a = new GUI();
 
 
-
-
-
+    /**
+     * A reference to gui showMessage method to show a message and a button.
+     * @param gui
+     */
     public static void startScreen(GUI gui){
-
         gui.showMessage("Press OK to roll the dice ");
 
     }
-    public static void startButton(GUI gui){
 
+    /**
+     * A reference method for Roll and Exit button.
+     * @param gui
+     */
+    public static void startButton(GUI gui){
         gui.getUserLeftButtonPressed(" ","Roll","Exit");
 
     }
 
+    /**
+     * Method to show dice and the face values.
+     * @param gui
+     * @param dice1  Face value of the first dice.
+     * @param dice2  Face value of the second dice.
+     *
+     */
     public static void displayDice(GUI gui,int dice1, int dice2){
         gui.setDice(dice1,dice2);
 
@@ -82,6 +93,11 @@ public class Displaymanager {
 
     }
 
+    /**
+     * A method to show win-message to the winner when the player reached 3000 points.
+     * @param gui
+     * @param playerPosition
+     */
     public void winScreen(GUI gui, int playerPosition){
        if (playerPosition >= 3000) {
            gui.getUserLeftButtonPressed("You have won the game! Press 'Restart' or 'Exit' ","Exit","Restart");
