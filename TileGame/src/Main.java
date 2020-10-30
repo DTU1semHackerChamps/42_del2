@@ -6,9 +6,9 @@ import gui_main.GUI;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+        //
         Tile[] tileList = Tile.tileListInit();
         HashMap<String,String> stringList = Language.languageInit("english");
-
 
         String[] tileTexts = Language.tileTexts(stringList);
 
@@ -55,7 +55,5 @@ public class Main {
             }
 
         }while (Displaymanager.winScreen(gui,Displaymanager.displayPlayerWin(player1.getPlayerTurn(),stringList,player1.getPlayerName(), player2.getPlayerName()),stringList.get("winTrueButton"), stringList.get("winFalseButton")));
-
-       // while (!(Displaymanager.winScreen(gui, currentPlayer.hasWon())));*/
     }
 }
