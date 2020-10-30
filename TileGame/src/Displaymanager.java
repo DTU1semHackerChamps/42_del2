@@ -32,20 +32,26 @@ public class Displaymanager {
         // *********Init board*********
 
         GUI.setNull_fields_allowed(true);
+        Tile[] tiles = Tile.tileListInit();
+        String tileBalance ="";
 
 
 
         //Der tilføjes et par værdier.
         for (int i = 0; i < 16; i++) {
 
-            if((i==0)||(i==4)||(i==8)||(i==12)) {
 
-            }
-            else{
-                GUI_Street testStreet = new GUI_Street();
-                testStreet.setTitle("Tower");
-                testStreet.setSubText("+250");
-                fields[i] = testStreet;
+                if ((i == 0) || (i == 4) || (i == 8) || (i == 12)) {
+
+                } else {
+
+                    tileBalance = Integer.toString(tiles[i].getBalanceChange());
+
+                GUI_Street street = new GUI_Street();
+                street.setTitle("Tower");
+                street.setSubText(tileBalance);
+                fields[i] = street;
+
             }
         }
         GUI gui = new GUI(fields);
