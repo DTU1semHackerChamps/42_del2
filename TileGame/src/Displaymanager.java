@@ -1,4 +1,3 @@
-import gui_codebehind.Observable;
 import gui_fields.GUI_Car;
 import gui_fields.GUI_Player;
 import gui_main.GUI;
@@ -15,6 +14,9 @@ public class Displaymanager {
      * A reference to gui showMessage method to show a message and a button.
      * @param gui
      */
+
+
+
     public static void startScreen(GUI gui){
         gui.showMessage("Press OK to roll the dice ");
 
@@ -114,20 +116,29 @@ public class Displaymanager {
     public static void displayPosition(GUI_Field[] fields, int positionPlayer1, int positionPlayer2, GUI_Player gui_Player1, GUI_Player gui_Player2){
 
 
+        for (int i = 1; i < 16; i++) {
+            if ((i == 4)||(i == 8)||(i == 12)) {
 
-
-        fields[positionPlayer1].removeAllCars();
+            } else {
+                fields[i].removeAllCars();
+            }
+        }
         switch (positionPlayer1) {
             case 4,5,6: positionPlayer1 += 1;
+                break;
             case 7,8,9: positionPlayer1 += 2;
+                break;
             case 10,11,12: positionPlayer1 += 3;
-
+                break;
         }
 
         switch (positionPlayer2) {
             case 4,5,6: positionPlayer2 += 1;
+                break;
             case 7,8,9: positionPlayer2 += 2;
+                break;
             case 10,11,12: positionPlayer2 += 3;
+                break;
 
         }
 

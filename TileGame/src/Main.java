@@ -10,7 +10,6 @@ import gui_main.GUI;
 public class Main {
     public static void main(String[] args) throws IOException {
         Dice dice = new Dice(0);
-        Displaymanager displaymanager = new Displaymanager();
 
         GUI_Field[] fields = new GUI_Field[16];
         GUI gui = Displaymanager.initBoard(fields);
@@ -21,10 +20,12 @@ public class Main {
         GUI_Player gui_Player2 = Displaymanager.displayAddPlayer(gui, fields, player2.getPlayerName(), player2.getBalance(), false);
 
 
-
-
-
-      //  displaymanager.displayPosition(fields, player1.getPosition(), player2.getPosition(), gui_Player1, gui_Player2);
+        player1.setPosition(2);
+        player2.setPosition(7);
+        gui_Player1.setBalance(player1.getBalance());
+        gui_Player2.setBalance(player2.getBalance());
+        Displaymanager.displayPosition(fields, player1.getPosition(), player2.getPosition(), gui_Player1, gui_Player2);
+        Displaymanager.displayDice(gui,5,6);
 
 
 
