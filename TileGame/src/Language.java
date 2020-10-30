@@ -20,7 +20,7 @@ public class Language {
         HashMap<String, String> langList = new HashMap<>();
 
         for (int i = 0; i < 25; i++) {
-            langList.put(reader.readLine(), reader.readLine()); // langList.put(keyWord, Data)
+            langList.put(reader.readLine(), reader.readLine());
 
         }
         return langList;
