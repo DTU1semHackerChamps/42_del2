@@ -15,6 +15,7 @@ RESTART
 winFalseButton
 EXIT
 tileText1
+You have traveled far and wide, welcome back home.
 tileText2
 You caught the big fish in the lake!
 tileText3
@@ -24,7 +25,7 @@ AAA HU, was that what you were looking for?
 tileText5
 Don't give up, still something out of nothing!
 tileText6
-How was that? You have won a gold seal, save it for next
+How was that? You have won a gold seal, save it for next.
 tileText7
 Keep testing your luck!
 tileText8
@@ -36,7 +37,7 @@ Better luck for the next turn!
 tileText11
 The sun rises after the darkest!
 tileText12
-You have won black diamond in the jungle, sale it for 650, make you self reach.
+You have won black diamond in the jungle, sell it for 650, make you self reach.
 playerTurn
 it is your turn. Press ROLL to roll.
 playerWin
