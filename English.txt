@@ -13,9 +13,9 @@ EXIT
 winScreenMessage
 You have won the game! Press 'RESTART' or 'EXIT'
 winTrueButton
-EXIT
-winFalseButton
 RESTART
+winFalseButton
+EXIT
 tileText1
 0
 tileText2
@@ -42,3 +42,5 @@ tileText12
 11
 playerTurn
 Halloejsa
+playerWin
+has won!

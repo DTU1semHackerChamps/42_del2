@@ -27,13 +27,16 @@ public class Main {
         GUI_Player gui_Player1 = Displaymanager.displayAddPlayer(gui, fields, player1.getPlayerName(), player1.getBalance(), true);
         GUI_Player gui_Player2 = Displaymanager.displayAddPlayer(gui, fields, player2.getPlayerName(), player2.getBalance(), false);
 
-        while(true) {
+        do{
             player1.setPosition(1);
             player2.setPosition(1);
             player1.setBalance(1000);
             player2.setBalance(1000);
             player1.setPlayerTurn(true);
             player2.setPlayerTurn(false);
+            gui_Player1.setBalance(player1.getBalance());
+            gui_Player2.setBalance(player2.getBalance());
+            Displaymanager.displayPosition(fields, player1.getPosition(), player2.getPosition(), gui_Player1, gui_Player2);
             while(Displaymanager.rollScreen(gui, Displaymanager.displayPlayerTurn(player1.getPlayerTurn(),stringList,player1.getPlayerName(),player2.getPlayerName()), stringList.get("rollButton"))){
                 currentPlayer = Player.shiftPlayer(player1, player2);
                 sumOfDice = dice1.rollDice() + dice2.rollDice();
@@ -49,10 +52,13 @@ public class Main {
                 Displaymanager.displayPosition(fields, player1.getPosition(), player2.getPosition(), gui_Player1, gui_Player2);
                 Displaymanager.displayDice(gui, dice1.getFaceValue(), dice2.getFaceValue());
                 Displaymanager.displayTileText(tileTexts,currentPlayer.getPosition(), gui);
+                if(currentPlayer.hasWon()){
+                    break;
+                }
             }
 
-        }
-
+        }while (Displaymanager.winScreen(gui,stringList.get("winScreenMessage"),stringList.get("winTrueButton"), stringList.get("winFalseButton")));
+        System.out.println("man");
 
        // while (!(Displaymanager.winScreen(gui, currentPlayer.hasWon())));*/
     }

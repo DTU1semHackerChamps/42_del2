@@ -6,11 +6,11 @@ public class Player {
 
 
 
-    public Player(int a, int b, boolean c, String name){
+    public Player(int balance, int position, boolean playerTurn, String name){
 
-        balance = a;
-        position = b;
-        playerTurn = c;
+        this.balance = balance;
+        this.position = position;
+        this.playerTurn = playerTurn;
         playerName = name;
 
     }

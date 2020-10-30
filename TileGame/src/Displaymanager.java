@@ -82,22 +82,16 @@ public class Displaymanager {
 
     }
 
-    public static boolean winScreen(GUI gui, boolean hasWon, String winScreenMessage, String winTrueButton, String winFalseButton){
+    public static boolean winScreen(GUI gui, String winScreenMessage, String winTrueButton, String winFalseButton){
         boolean buttonPress = false;
-        if (hasWon) {
-           buttonPress = gui.getUserLeftButtonPressed(winScreenMessage, winTrueButton, winFalseButton);
-           if(buttonPress){
-               System.exit(0);
-           }
+
+       buttonPress = gui.getUserLeftButtonPressed(winScreenMessage, winTrueButton, winFalseButton);
+       if(!buttonPress){
+           System.exit(0);
        }
 
+
         return buttonPress;
-
-    }
-
-
-    public void displayBalance(){
-
     }
 
     public static void displayPosition(GUI_Field[] fields, int positionPlayer1, int positionPlayer2, GUI_Player gui_Player1, GUI_Player gui_Player2){
@@ -140,6 +134,16 @@ public class Displaymanager {
             thisText = player1name + " " + playerText.get("playerTurn");
         } else {
             thisText = player2name + " " + playerText.get("playerTurn");
+        }
+        return thisText;
+    }
+
+    public static String displayPlayerWin(Boolean playerturn, HashMap<String,String> playerText, String player1name, String player2name){
+        String thisText;
+        if(playerturn){
+            thisText = player1name + " " + playerText.get("playerWin");
+        } else {
+            thisText = player2name + " " + playerText.get("playerWin");
         }
         return thisText;
     }

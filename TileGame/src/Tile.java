@@ -7,10 +7,10 @@ public class Tile {
     private int balanceChange;
     private boolean extraTurn;
     private String tileName;
-    public Tile(int a, boolean b,String name)
+    public Tile(int balanceChange, boolean extraTurn,String name)
     {
-        balanceChange = a;
-        extraTurn = b;
+        this.balanceChange = balanceChange;
+        this.extraTurn = extraTurn;
         tileName = name;
 
     }
